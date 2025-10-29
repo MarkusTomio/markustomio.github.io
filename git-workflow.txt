@@ -1,0 +1,71 @@
+Git Workflow — ePortfolio & Theme Submodule
+
+Guide for working with main website repo and theme fork (submodule).
+
+---
+
+	When modifying the theme (submodule)
+```bash
+cd themes/hextra
+git add .
+git commit -m "feat(theme): adjust header color and spacing"
+git push           # pushes to fork (MarkusTomio/hextra)
+```
+
+---
+
+	Pin main repo to the new theme commit
+```bash
+cd ../..
+git add themes/hextra
+git commit -m "chore(submodule): update hextra to latest custom commit"
+git push           # pushes to main repo (MarkusTomio/ePortfolio)
+```
+
+---
+
+	When editing website content or config
+```bash
+cd ~/Documents/z_tech/ePortfolio
+git add .
+git commit -m "feat(content): add new portfolio page"
+git push
+```
+
+---
+
+	Merging upstream changes from the original theme
+```bash
+cd themes/hextra
+git fetch upstream
+git merge upstream/main
+git push
+cd ../..
+git add themes/hextra
+git commit -m "chore(theme): merge latest upstream changes"
+git push
+```
+
+---
+
+Important notes
+- Forking happens on GitHub, not through git push.  
+- `git remote set-url` or `git remote add upstream` = local only (not pushed).  
+- If modify `.gitmodules`, commit + push it in the **main repo**.  
+- Always push the submodule first, then commit & push the main repo.  
+
+---
+
+Commit Examples
+
+| Type | Purpose | Example |
+|------|----------|----------|
+| `feat` | New feature or enhancement | `feat(theme): add dark mode toggle` |
+| `fix` | Bug fix | `fix(css): correct nav bar padding` |
+| `chore` | Maintenance / setup / updates | `chore(submodule): update theme reference` |
+| `docs` | Documentation changes | `docs: add git workflow guide` |
+| `refactor` | Code reorganization (no behavior change) | `refactor(theme): simplify footer partial` |
+| `style` | Formatting only | `style(css): tidy up code formatting` |
+| `perf` | Performance improvement | `perf(images): optimize hero background loading` |
+
+---
