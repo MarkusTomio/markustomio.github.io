@@ -23,6 +23,11 @@ menu:
       name: "CV"
       pageRef: cv
       weight: 1
+    - name: GitHub
+      weight: 97
+      url: "https://github.com/MarkusTomio/markustomio.github.io"
+      params:
+        icon: github
 
 markup:
   highlight:
