@@ -41,3 +41,14 @@ markup:
           block: [['\[', '\]'], ['$$', '$$']]
           inline: [['\(', '\)']]
         enable: true
+
+params:
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/logo-MT.svg
+      dark: images/logo-MT-dark.svg
+      link: /
+      width: 40
+      height: 20
